@@ -1,0 +1,19 @@
+//Import library
+import smtplib
+// Security in password
+from getpass import getpass
+// Your email and password
+gmailaddress = input("what is your gmail address? \n ")
+gmailpassword = getpass("Password? \n")
+// His/Her email
+mailto = input("what email address do you want to send your message to? \n ")
+// The message
+msg = input("What is your message? \n ")
+//Server
+mailServer = smtplib.SMTP('smtp.gmail.com' , 587)
+mailServer.starttls()
+mailServer.login(gmailaddress , gmailpassword)
+mailServer.sendmail(gmailaddress, mailto , msg)
+print(" \n Sent!")
+mailServer.quit()
+// Don't forget to turn ON less security on your gmail settings.
